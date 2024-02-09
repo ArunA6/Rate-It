@@ -1,0 +1,207 @@
+/* style.css - Light mode styles */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #f7f7f7, #ccc); /* Gradient background */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden; /* Hide overflow to prevent scrollbars due to border animation */
+    position: relative; /* Position relative for absolute positioning of the border animation */
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Border animation for the central container */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 5px solid transparent; /* Initial transparent color */
+    box-sizing: border-box;
+    animation: borderAnimation 10s infinite; /* Animation duration and behavior */
+}
+
+@keyframes borderAnimation {
+    0% {
+        border-color: #007bff; /* Start with blue */
+    }
+    25% {
+        border-color: #4e79ca; /* Transition to a lighter blue */
+    }
+    50% {
+        border-color: #8f4dbf; /* Transition to a purple color */
+    }
+    75% {
+        border-color: #bf4da5; /* Transition to a darker purple */
+    }
+    100% {
+        border-color: #007bff; /* Return to blue */
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 95%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.result {
+    margin-top: 20px;
+}
+
+.result p {
+    font-size: 18px;
+}
+
+.positive {
+    color: #28a745;
+}
+
+.negative {
+    color: #dc3545;
+}
+
+.neutral {
+    color: #007bff;
+}
+
+/* Additional styles for dark mode */
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.mode-toggle {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #007bff;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #007bff;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Additional styles for dark mode toggle label */
+
+.mode-label {
+    margin-left: 10px;
+}
+
+/* Additional styles for sentiment emoji */
+
+.result {
+    margin-top: 20px;
+}
+
+.result p {
+    font-size: 18px;
+}
+
+.positive {
+    color: #28a745;
+}
+
+.negative {
+    color: #dc3545;
+}
+
+.neutral {
+    color: #007bff;
+}
+
+/* Additional styles for emoji */
+
+span.emoji {
+    font-size: 24px;
+    margin-left: 5px;
+}

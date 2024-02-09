@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" id="style">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-dark.css') }}" id="styleDark" disabled>
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+    <!--<div class="dark-mode-toggle">
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider round"></span>
+        </label>
+        <span class="mode-label">Dark Mode</span>
+    </div>-->
+    <div class="container">
+        <div class="mode-toggle">
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+            <span class="mode-label">Dark Mode</span>
+        </div>
+        <h1>Sentiment Analysis</h1>
+        <form action="{{ url_for('analyze') }}" method="post">
+            <label for="text">Enter text:</label>
+            <textarea name="text" id="text" rows="4" required></textarea>
+            <button type="submit">Analyze</button>
+        </form>
+        {% if text %}
+            <div class="result">
+                <p>Text: {{ text }}</p>
+                <p>Sentiment: <span class="{{ analysis|lower }}">{{ analysis }}</span></p>
+            </div>
+        {% endif %}
+    </div>
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const styleLink = document.getElementById('style');
+        const styleDarkLink = document.getElementById('styleDark');
+
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
+                styleLink.disabled = false;
+                styleDarkLink.disabled = false;
+            } else {
+                styleLink.disabled = false;
+                styleDarkLink.disabled = true;
+            }
+        });
+    </script>
+</body>
+</html>

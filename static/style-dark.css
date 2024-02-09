@@ -1,0 +1,58 @@
+/* style-dark.css - Dark mode styles */
+
+body {
+    background: linear-gradient(45deg, #111, #333); /* Gradient background */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden; /* Hide overflow to prevent scrollbars due to border animation */
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Border animation for the central container */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 5px solid transparent; /* Initial transparent color */
+    box-sizing: border-box;
+    animation: borderAnimation 10s infinite; /* Animation duration and behavior */
+}
+
+@keyframes borderAnimation {
+    0% {
+        border-color: #007bff; /* Start with blue */
+    }
+    25% {
+        border-color: #4e79ca; /* Transition to a lighter blue */
+    }
+    50% {
+        border-color: #8f4dbf; /* Transition to a purple color */
+    }
+    75% {
+        border-color: #bf4da5; /* Transition to a darker purple */
+    }
+    100% {
+        border-color: #007bff; /* Return to blue */
+    }
+}
+/*
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+*/
