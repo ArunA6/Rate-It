@@ -1,5 +1,7 @@
 # Rate-It
 
+(Only template code is shown here, feel free to reach out for more info!)
+
 Text and link based Sentiment Analysis using Python and Flask. Prompting text input as well as csv files in the future.
 
 Goal: Sentiment analysis of social media postings with and without reviews/ratings
